@@ -6,9 +6,9 @@ import (
 	"time"
 )
 
-func Do(attempts int) (time.Duration, error) {
+func Do(attempts int) time.Duration {
 	if attempts == 0 {
-		return time.Duration(0), nil
+		return time.Duration(0)
 	}
-	return time.Duration(math.Pow(10, float64(attempts))) * time.Millisecond, nil
+	return time.Duration(math.Pow(10, float64(attempts))) * time.Millisecond
 }
