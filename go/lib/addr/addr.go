@@ -40,6 +40,7 @@ func Extract(addr string) (string, error) {
 	}
 
 	var ipAddr []byte
+	var publicIP []byte
 
 	for _, rawAddr := range addrs {
 		var ip net.IP
@@ -57,6 +58,7 @@ func Extract(addr string) (string, error) {
 		}
 
 		if !isPrivateIP(ip.String()) {
+			publicIP = ip
 			continue
 		}
 
@@ -64,11 +66,17 @@ func Extract(addr string) (string, error) {
 		break
 	}
 
-	if ipAddr == nil {
-		return "", fmt.Errorf("No private IP address found, and explicit IP not provided")
+	// return private ip
+	if ipAddr != nil {
+		return net.IP(ipAddr).String(), nil
 	}
 
-	return net.IP(ipAddr).String(), nil
+	// return public or virtual ip
+	if publicIP != nil {
+		return net.IP(publicIP).String(), nil
+	}
+
+	return "", fmt.Errorf("No IP address found, and explicit IP not provided")
 }
 
 // IPs returns all known ips
