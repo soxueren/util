@@ -1,19 +1,19 @@
 module github.com/micro/util
 
 require (
-	github.com/golang/protobuf v1.2.0 // indirect
-	github.com/google/uuid v1.1.0 // indirect
-	github.com/hashicorp/consul v1.4.2 // indirect
-	github.com/hashicorp/go-cleanhttp v0.5.0 // indirect
-	github.com/hashicorp/go-rootcerts v1.0.0 // indirect
-	github.com/hashicorp/serf v0.8.2 // indirect
-	github.com/micro/cli v0.0.0-20181223203424-1b0c9793c300
+	github.com/armon/go-radix v1.0.0 // indirect
+	github.com/hashicorp/go-sockaddr v1.0.1 // indirect
+	github.com/mattn/go-colorable v0.1.0 // indirect
+	github.com/mattn/go-isatty v0.0.4 // indirect
+	github.com/micro/cli v0.1.0
 	github.com/micro/go-log v0.1.0
-	github.com/micro/go-micro v0.23.0
-	github.com/micro/go-rcache v0.1.0 // indirect
-	github.com/micro/h2c v1.0.0 // indirect
-	github.com/mitchellh/mapstructure v1.1.2 // indirect
-	github.com/pkg/errors v0.8.1 // indirect
-	golang.org/x/net v0.0.0-20190125091013-d26f9f9a57f3
-	golang.org/x/text v0.3.0 // indirect
+	github.com/micro/go-micro v0.26.1
+	github.com/miekg/dns v1.1.4 // indirect
+	github.com/mitchellh/go-homedir v1.1.0 // indirect
+	github.com/posener/complete v1.2.1 // indirect
+	github.com/stretchr/objx v0.1.1 // indirect
+	golang.org/x/crypto v0.0.0-20190211182817-74369b46fc67 // indirect
+	golang.org/x/net v0.0.0-20190213061140-3a22650c66bd
+	golang.org/x/sys v0.0.0-20190213121743-983097b1a8a3 // indirect
+	gopkg.in/check.v1 v1.0.0-20180628173108-788fd7840127 // indirect
 )
