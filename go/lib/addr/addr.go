@@ -34,9 +34,19 @@ func Extract(addr string) (string, error) {
 		return addr, nil
 	}
 
-	addrs, err := net.InterfaceAddrs()
+	ifaces, err := net.Interfaces()
 	if err != nil {
-		return "", fmt.Errorf("Failed to get interface addresses! Err: %v", err)
+		return "", fmt.Errorf("Failed to get interfaces! Err: %v", err)
+	}
+
+	var addrs []net.Addr
+	for _, iface := range ifaces {
+		ifaceAddrs, err := iface.Addrs()
+		if err != nil {
+			// ignore error, interface can dissapear from system
+			continue
+		}
+		addrs = append(addrs, ifaceAddrs...)
 	}
 
 	var ipAddr []byte
