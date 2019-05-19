@@ -10,7 +10,7 @@ var (
 )
 
 func init() {
-	for _, b := range []string{"10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16", "100.64.0.0/10"} {
+	for _, b := range []string{"10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16", "100.64.0.0/10", "fd00::/8"} {
 		if _, block, err := net.ParseCIDR(b); err == nil {
 			privateBlocks = append(privateBlocks, block)
 		}
@@ -60,10 +60,6 @@ func Extract(addr string) (string, error) {
 		case *net.IPNet:
 			ip = addr.IP
 		default:
-			continue
-		}
-
-		if ip.To4() == nil {
 			continue
 		}
 
