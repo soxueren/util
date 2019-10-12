@@ -28,7 +28,7 @@ func (r *roundTripper) RoundTrip(req *http.Request) (*http.Response, error) {
 		if err != nil {
 			continue
 		}
-		req.URL.Host = fmt.Sprintf("%s:%d", n.Address, n.Port)
+		req.URL.Host = fmt.Sprintf("%s", n.Address)
 		w, err := r.rt.RoundTrip(req)
 		if err != nil {
 			continue
